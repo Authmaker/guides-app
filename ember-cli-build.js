@@ -1,13 +1,16 @@
 /* eslint-env node */
 'use strict';
 
+var env = process.env.EMBER_ENV;
+var deploy = require('./config/deploy.js')(env);
+
 const StaticSiteJson = require('broccoli-static-site-json');
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 const BroccoliMergeTrees = require('broccoli-merge-trees');
 
-const jsonTree = new StaticSiteJson('node_modules/@stonecircle/guides-source/v2.15.0', {});
+const jsonTree = new StaticSiteJson('node_modules/@authmaker/guides-source', {});
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -15,6 +18,10 @@ module.exports = function(defaults) {
       'theme': 'okaidia',
       'components': ['scss', 'javascript'], //needs to be an array, or undefined.
       'plugins': ['line-numbers']
+    },
+
+    fingerprint: {
+      prepend: `${deploy.gcloudUrl}/${deploy['gcloud-storage'] ? deploy['gcloud-storage'].bucket : ''}/`
     }
   });
 

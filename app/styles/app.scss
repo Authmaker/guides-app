@@ -1313,11 +1313,11 @@ html {
 }
 
 .header-logo a {
-  height: 40px;
-  width: 100px;
-  background: url("../images/ember-logo.svg") no-repeat;
+  height: 60px;
+  width: 60px;
+  background: url("../images/logo.svg") no-repeat;
   display: block;
-  margin: -15px auto 0;
+  margin: 0 auto 0;
 }
 @media screen and (min-width: 53.75em) {
   .header-logo a {

@@ -1,19 +1,18 @@
 import DS from 'ember-data';
 import { pluralize } from 'ember-inflector';
 import { decamelize } from '@ember/string';
+import Config from 'guides-app/config/environment';
 
 export default DS.JSONAPIAdapter.extend({
-  buildURL(type) {
-    if(type === 'page') {
-      return `/content/pages.json`;
-    }
-
+  host: Config.apiHost,
+  namespace: Config.apiNamespace,
+  buildURL() {
     return `${this._super(...arguments)}.json`;
   },
 
   pathForType: function(modelName) {
-    if (modelName === 'content' || modelName === 'page') {
-      return 'content';
+    if (modelName === 'content') {
+      return '';
     }
 
     var decamelized = decamelize(modelName);
