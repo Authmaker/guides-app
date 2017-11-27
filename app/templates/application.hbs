@@ -31,36 +31,47 @@
 {{!-- <%= yield_content :outside_wrapper %>  --}}
 
 <main class="container">
-
-{{!-- <% if current_page.data.title == "404 - Not Found" %>
-  <%= yield %>
-<% else %> --}}
-
-  <aside class="sidebar">
-    <label for="version-select" class="visually-hidden">Guides version</label>
-    <select class="version-select" id="version-select" style="width: 100%"></select>
-
-    {{!-- <input id="toc-toggle" class="toc-toggle visually-hidden" type="checkbox" />
-    <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label> --}}
-
-    <nav class='toc-container' aria-label='table of contents'>
-      {{table-of-contents data=model}}
-    </nav>
-
-    {{!-- <%= toc_for(data.pages) %>
-
-    <%= link_to "&#11014; Back to Top".html_safe, "#", class: "back-to-top" %> --}}
-  </aside>
-
-
   {{outlet}}
 
-{{!-- <% end %> --}}
+  {{!-- <% end %> --}}
 </main>
 
-{{!-- <%= partial "footer" %>
+<div class="footer">
+  <div class="container">
+    <div class="footer-info">
+      Copyright 2017
+      <a href="http://tilde.io">Tilde Inc.</a>
+      <br>
+      <a href="http://emberjs.com/team">Core Team</a> |
+      <a href="http://emberjs.com/sponsors">Sponsors</a>
+      <br>
+      <a href="http://emberjs.com/security">Security</a> |
+      <a href="http://emberjs.com/legal">Legal</a> |
+      <a href="http://emberjs.com/logos">Logos</a>
+      <br>
+      <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+    </div>
 
-<%= yield_content :foot %> --}}
+    <div class="footer-statement">
+      Ember.js is free, open source and always will be.
+    </div>
+
+    <div class="footer-social">
+      <a href="http://twitter.com/emberjs"
+        title="Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+      <a href="https://github.com/emberjs/ember.js"
+        title="GitHub">
+        <i class="icon-github"></i>
+      </a>
+      <a href="https://plus.google.com/communities/106387049790387471205"
+        title="Google+">
+        <i class="icon-gplus"></i>
+      </a>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
   var _gaq = _gaq || [];
