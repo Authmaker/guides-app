@@ -10,7 +10,9 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 const BroccoliMergeTrees = require('broccoli-merge-trees');
 
-const jsonTree = new StaticSiteJson('node_modules/@authmaker/guides-source', {});
+const jsonTree = new StaticSiteJson('node_modules/@authmaker/guides-source', {
+  contentFolder: `content/current`
+});
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {

@@ -11,7 +11,7 @@ export default Service.extend({
   }),
 
   currentSection: computed('router.currentURL', 'pages.[]', function() {
-    let match = get(this, 'router.currentURL').match(/^\/v\d+\.\d+\.\d+\/([\w-]+)/);
+    let match = get(this, 'router.currentURL').match(/^\/current\/([\w-]+)/);
 
     if(match && match[1]) {
       let promise = get(this, 'pages')
@@ -62,7 +62,7 @@ export default Service.extend({
   }),
 
   currentPage: computed('router.currentURL', 'currentSection.pages', function() {
-    let match = get(this, 'router.currentURL').match(/^\/v\d+\.\d+\.\d+\/([\w-/]+)/);
+    let match = get(this, 'router.currentURL').match(/^\/current\/([\w-/]+)/);
 
     if(match && match[1]) {
       let pages = get(this, 'currentSection.pages');
@@ -112,6 +112,6 @@ export default Service.extend({
   }),
 
   currentVersion: computed('router.currentURL', function() {
-    return get(this, 'router.currentURL').match(/v\d+\.\d+\.\d+/)[0];
+    return 'current';
   })
 });

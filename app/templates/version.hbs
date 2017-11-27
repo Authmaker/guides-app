@@ -3,10 +3,6 @@
 <% else %> --}}
 
 <aside class="sidebar">
-  <label for="version-select" class="visually-hidden">Guides version</label>
-  {{#power-select class="version-select" selected=model.version options=versions onchange=(action 'selectVersion') as |version|}}
-    {{version}}
-  {{/power-select}}
 
   {{!-- <input id="toc-toggle" class="toc-toggle visually-hidden" type="checkbox" />
   <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label> --}}
