@@ -27,7 +27,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'production') {
-    ENV.apiNamespace = 'authmaker-beginner-guides/content';
+    ENV.apiNamespace = 'authmaker-beginner-guides';
     ENV.apiHost = 'https://storage.googleapis.com';
   }
 
