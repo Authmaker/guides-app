@@ -3,7 +3,7 @@
   {{#unless page.skipToc}}
     <li class="{{tocLevel}} {{if (eq currentPage.url page.url) 'selected'}}">
       {{#if page.pages}}
-        {{#cp-panel open=(eq currentSection.id page.id) as |p|}}
+        {{#cp-panel open=true as |p|}}
           {{#p.toggle}}
             {{page.title}}
           {{/p.toggle}}
