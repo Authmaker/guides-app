@@ -4,7 +4,7 @@
     <li class="{{tocLevel}} {{if (eq currentPage.url page.url) 'selected'}}">
       {{#if page.pages}}
         {{#cp-panel open=true as |p|}}
-          {{#p.toggle}}
+          {{#p.toggle click=(action (optional 'nothing'))}}
             {{page.title}}
           {{/p.toggle}}
 
