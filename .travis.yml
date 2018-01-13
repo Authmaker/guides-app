@@ -3,8 +3,12 @@ language: node_js
 node_js:
   - "6"
 
-sudo: false
+sudo: required
 dist: trusty
+
+branches:
+  only:
+    - master
 
 addons:
   chrome: stable
@@ -19,4 +23,5 @@ env:
     - JOBS=1
 
 before_install:
+  - npm install -g npm@5
   - npm config set spin false

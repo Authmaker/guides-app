@@ -5,14 +5,27 @@ var env = process.env.EMBER_ENV;
 var deploy = require('./config/deploy.js')(env);
 
 const StaticSiteJson = require('broccoli-static-site-json');
-
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
 const BroccoliMergeTrees = require('broccoli-merge-trees');
+const yaml = require('js-yaml');
+const { Serializer } = require('jsonapi-serializer');
+const writeFile = require('broccoli-file-creator');
+const Funnel = require('broccoli-funnel');
+
+const guidesSourcePublic = new Funnel('node_modules/@ember/guides-source/public');
+
+const VersionsSerializer = new Serializer('version', {
+  attributes: [
+    'allVersions',
+    'currentVersion',
+  ],
+});
 
 const jsonTree = new StaticSiteJson('node_modules/@authmaker/guides-source', {
   contentFolder: `content/current`
 });
+
+var versionsFile = writeFile('/content/versions.json', JSON.stringify(VersionsSerializer.serialize(versions)));
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -27,18 +40,7 @@ module.exports = function(defaults) {
     }
   });
 
-  // Use `app.import` to add additional libraries to the generated
-  // output files.
-  //
-  // If you need to use different assets in different
-  // environments, specify an object as the first parameter. That
-  // object's keys should be the environment name and the values
-  // should be the asset to use in that environment.
-  //
-  // If the library that you are including contains AMD or ES6
-  // modules that you would like to import into your application
-  // please specify an object with the list of modules as keys
-  // along with the exports of each module as its value.
+  app.import('node_modules/compare-versions/index.js');
 
-  return new BroccoliMergeTrees([app.toTree(), jsonTree]);
+  return new BroccoliMergeTrees([app.toTree(), guidesSourcePublic, jsonTree]);
 };
