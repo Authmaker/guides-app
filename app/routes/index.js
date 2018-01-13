@@ -3,6 +3,6 @@ import { get } from '@ember/object';
 
 export default Route.extend({
   redirect() {
-    this.transitionTo('version', 'current');
+    this.transitionTo('version.show', 'current', 'index');
   }
 });
