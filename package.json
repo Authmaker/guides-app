@@ -16,7 +16,7 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "@authmaker/guides-source": "^1.1.0",
+    "@authmaker/guides-source": "github:authmaker/documentation",
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-merge-trees": "^2.0.0",
     "broccoli-static-site-json": "^1.0.3",
