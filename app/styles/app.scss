@@ -1014,11 +1014,7 @@ h5 {
 }
 
 h1 {
-  color: #dd6a58;
-}
-
-h2 {
-  color: #865931;
+  color: #4E555C;
 }
 
 p {
@@ -1027,7 +1023,7 @@ p {
 }
 
 a {
-  color: #dd6a58;
+  color: #4E555C;
   transition: color 0.1s linear;
 }
 
@@ -1237,7 +1233,7 @@ html {
 }
 
 .header {
-  background: #dd6a58 url("../images/header.svg") top center no-repeat;
+  background: #4E555D url("../images/header.svg") top center no-repeat;
   background-size: cover;
   color: #fff;
   padding: 1em 0;
@@ -1313,8 +1309,7 @@ html {
 }
 
 .header-logo a {
-  height: 60px;
-  width: 60px;
+  height: 50px;
   background: url("../images/logo.svg") no-repeat;
   display: block;
   margin: 0 auto 0;
@@ -1403,7 +1398,7 @@ html {
 }
 
 .footer .footer-info a {
-  color: #dd6a58;
+  color: #4E555C;
 }
 
 .footer .footer-statement {
@@ -1519,7 +1514,6 @@ article {
 article .edit-page {
   height: 18px;
   width: 24px;
-  color: #865931;
   display: inline-block;
   float: right;
   font-size: 1rem;
